@@ -2,6 +2,7 @@ import time
 from ADCDevice import *
 
 adc = ADCDevice() # Define an ADCDevice class object
+time_ref = time.time()
 
 def setup():
     global adc
@@ -19,8 +20,11 @@ def loop():
     while True:
         value = adc.analogRead(0)    # read the ADC value of channel 0
         voltage = value / 255.0 * 3.3  # calculate the voltage value
+        time_curr = time.time() - time_ref
         print ('ADC Value : %d, Voltage : %.2f'%(value,voltage))
-        time.sleep(0.01)
+        with open("vdata.txt", "a") as file:
+            file.write(str(time_curr) + " " + str(voltage))
+        time.sleep(0.001)
 
 def destroy():
     adc.close()
