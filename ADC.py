@@ -23,7 +23,7 @@ def loop():
         time_curr = time.time() - time_ref
         print ('ADC Value : %d, Voltage : %.2f'%(value,voltage))
         with open("vdata.txt", "a") as file:
-            file.write(str(time_curr) + " " + str(voltage))
+            file.write(str(time_curr) + " " + str(voltage) + "\n")
         time.sleep(0.001)
 
 def destroy():
