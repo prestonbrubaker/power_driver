@@ -6,8 +6,8 @@ CCWStep = (0x01,0x02,0x04,0x08) # define power supply order for rotating anticlo
 CWStep = (0x08,0x04,0x02,0x01)  # define power supply order for rotating clockwise
 itC = 0
 
-param_a = 40    # maximum angle
-param_b = 1    # time at most clockwise point (on)
+param_a = 35    # maximum angle
+param_b = .2    # time at most clockwise point (on)
 param_c = 2    # time at most counterclockwise point (off)
 
 
