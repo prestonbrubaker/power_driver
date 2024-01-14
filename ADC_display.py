@@ -47,6 +47,7 @@ def loop():
         y = 700 - voltage / 3.3 * 600
         
         pygame.draw.rect(window, (255, 0, 0), (x, y, 5, 5))
+        pygame.draw.rect(window, (255, 0, 0), (0, 0, 800, 40))
         text_surface = font.render(f"Average On Fraction: {avg_on:.4f}", True, (255, 255, 255))
         window.blit(text_surface, (10, 10))
         pygame.display.flip()
