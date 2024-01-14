@@ -23,6 +23,7 @@ def loop():
     time_ref = time.time()
     volt_ps = 0
     time_reff = 0
+    x2 = 0
 
     running = True
     while running:
@@ -37,13 +38,16 @@ def loop():
         time_reff = time_curr
         volt_ps += voltage * time_delta
         avg_voltage = volt_ps / time_curr
+        avg_on = avg_voltage / 3.3
 
         x = (time_curr % 10) / 10 * 600 + 100
+        if(x < x2):
+            window.fill((100, 100, 100))
+        x2 = x
         y = 700 - voltage / 3.3 * 600
-
-        window.fill((100, 100, 100))
+        
         pygame.draw.rect(window, (255, 0, 0), (x, y, 5, 5))
-        text_surface = font.render(f"Average Voltage: {avg_voltage:.2f}", True, (255, 255, 255))
+        text_surface = font.render(f"Average On Fraction: {avg_on:.4f}", True, (255, 255, 255))
         window.blit(text_surface, (10, 10))
         pygame.display.flip()
         
