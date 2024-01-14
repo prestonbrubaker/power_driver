@@ -34,11 +34,11 @@ def motorStop():
         GPIO.output(motorPins[i],GPIO.LOW)
 
 def loop(itC):
-    while (itC < 10):
+    while (itC < 4):
         moveSteps(1,3,100)
-        time.sleep(0.1)
+        time.sleep(0.05)
         moveSteps(0,3,100)
-        time.sleep(0.1)
+        time.sleep(0.05)
         itC += 1
 
 def destroy():
