@@ -38,7 +38,7 @@ def loop():
         time_reff = time_curr
         volt_ps += voltage * time_delta
         avg_voltage = volt_ps / time_curr
-        avg_on = avg_voltage / 3.3
+        avg_on = 1 - avg_voltage / 3.3
 
         x = (time_curr % 10) / 10 * 600 + 100
         if(x < x2):
