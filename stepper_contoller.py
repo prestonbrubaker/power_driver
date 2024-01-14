@@ -53,7 +53,7 @@ if __name__ == '__main__':     # Program entrance
     print ('Program is starting...')
     setup()
     try:
-        loop(itC)
+        loop(itC, param_a, param_b, param_c)
     except KeyboardInterrupt:  # Press ctrl-c to end the program.
         destroy()
 
