@@ -37,10 +37,10 @@ def motorStop():
     for i in range(0,4,1):
         GPIO.output(motorPins[i],GPIO.LOW)
 
-def loop(itC, param_a, param_b, param_c):
+def loop(itC, param_a):
     while (itC < 1):
         if(param_a > 0):
-          moveSteps(1,3,param_a)
+          moveSteps(1,3, param_a)
         else:
           moveSteps(0,3,-1 * param_a)
         itC += 1
@@ -52,6 +52,6 @@ if __name__ == '__main__':     # Program entrance
     print ('Program is starting...')
     setup()
     try:
-        loop(itC, param_a, param_b, param_c)
+        loop(itC, param_a)
     except KeyboardInterrupt:  # Press ctrl-c to end the program.
         destroy()
