@@ -1,3 +1,4 @@
+import time
 import pygame
 from ADCDevice import *
 
