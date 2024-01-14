@@ -6,6 +6,11 @@ CCWStep = (0x01,0x02,0x04,0x08) # define power supply order for rotating anticlo
 CWStep = (0x08,0x04,0x02,0x01)  # define power supply order for rotating clockwise
 itC = 0
 
+param_a = 40    # maximum angle
+param_b = 1    # time at most clockwise point (on)
+param_c = 2    # time at most counterclockwise point (off)
+
+
 def setup():
     GPIO.setmode(GPIO.BOARD)       # use PHYSICAL GPIO Numbering
     for pin in motorPins:
@@ -33,11 +38,11 @@ def motorStop():
     for i in range(0,4,1):
         GPIO.output(motorPins[i],GPIO.LOW)
 
-def loop(itC):
+def loop(itC, param_a, param_b, param_c):
     while (itC < 4):
-        moveSteps(1,3,40)
+        moveSteps(1,3,param_a)
         time.sleep(.1)
-        moveSteps(0,3,40)
+        moveSteps(0,3,param_a)
         time.sleep(.1)
         itC += 1
 
