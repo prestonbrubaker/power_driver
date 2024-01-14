@@ -9,6 +9,8 @@ window = pygame.display.set_mode((800, 800))
 adc = ADCDevice() # Define an ADCDevice class object
 time_ref = time.time()
 
+time_res = 0
+
 window.fill((100, 100, 100))
 
 def setup():
@@ -33,6 +35,9 @@ def loop():
             file.write(str(time_curr) + " " + str(voltage) + "\n")
         y = 700 - voltage / 3.3 * 600
         x = (time_curr % 10) / 10 * 600 + 100
+        if(x < time_res):
+            window.fill((100, 100, 100))
+        time_res = x
         pygame.draw.rect(window, (255, 0, 0), (x, y, 5, 5))
         pygame.display.flip()
         time.sleep(0.001)
