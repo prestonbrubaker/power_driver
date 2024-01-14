@@ -39,7 +39,7 @@ def motorStop():
         GPIO.output(motorPins[i],GPIO.LOW)
 
 def loop(itC, param_a, param_b, param_c):
-    while (itC < 4):
+    while (itC < 8):
         moveSteps(1,3,param_a)
         time.sleep(param_b)
         moveSteps(0,3,param_a)
