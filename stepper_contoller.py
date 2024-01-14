@@ -7,8 +7,8 @@ CWStep = (0x08,0x04,0x02,0x01)  # define power supply order for rotating clockwi
 itC = 0
 
 param_a = 35    # maximum angle
-param_b = .2    # time at most clockwise point (on)
-param_c = 2    # time at most counterclockwise point (off)
+param_b = 2    # time at most clockwise point (on)
+param_c = .2    # time at most counterclockwise point (off)
 
 
 def setup():
