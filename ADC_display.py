@@ -25,7 +25,7 @@ def setup():
         "Program Exit. \n")
         exit(-1)
 
-def loop():
+def loop(time_res):
     while True:
         value = adc.analogRead(0)    # read the ADC value of channel 0
         voltage = value / 255.0 * 3.3  # calculate the voltage value
@@ -49,6 +49,6 @@ if __name__ == '__main__':   # Program entrance
     print ('Program is starting ... ')
     try:
         setup()
-        loop()
+        loop(time_res)
     except KeyboardInterrupt: # Press ctrl-c to end the program.
         destroy()
