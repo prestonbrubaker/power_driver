@@ -28,12 +28,13 @@ def loop():
         value = adc.analogRead(0)    # read the ADC value of channel 0
         voltage = value / 255.0 * 3.3  # calculate the voltage value
         time_curr = time.time() - time_ref
-        print ('ADC Value : %d, Voltage : %.2f'%(value,voltage))
+        #print ('ADC Value : %d, Voltage : %.2f'%(value,voltage))
         with open("vdata.txt", "a") as file:
             file.write(str(time_curr) + " " + str(voltage) + "\n")
         y = 700 - voltage / 3.3 * 600
         x = (time_curr % 10) / 10 * 600 + 100
         pygame.draw.rect(window, (255, 0, 0), (x, y, 5, 5))
+        pygame.display.flip()
         time.sleep(0.001)
 
 def destroy():
