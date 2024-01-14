@@ -5,7 +5,7 @@ from ADCDevice import *
 pygame.init()
 
 window = pygame.display.set_mode((800, 800))
-font = pygame.font.SysFont('arial', 36)  # Use 'None' for the default font
+font = pygame.font.SysFont('arial', 36) 
 
 
 adc = ADCDevice() # Define an ADCDevice class object
@@ -54,9 +54,9 @@ def loop(time_res, time_ps, volt_ps, time_reff):
         time_res = x
         pygame.draw.rect(window, (255, 0, 0), (x, y, 5, 5))
         text_surface = font.render(str(volt_ps / time_curr), True, (255, 255, 255))
-        
-        pygame.display.flip()
         window.blit(window, (10, 10))
+        pygame.display.flip()
+        
         time.sleep(0.001)
 
 def destroy():
