@@ -6,7 +6,7 @@ CCWStep = (0x01,0x02,0x04,0x08) # define power supply order for rotating anticlo
 CWStep = (0x08,0x04,0x02,0x01)  # define power supply order for rotating clockwise
 itC = 0
 
-param_a = -1   # angle change (+ is counterclockwise)
+param_a = 1   # angle change (+ is counterclockwise)
 
 
 
